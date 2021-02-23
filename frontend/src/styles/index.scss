@@ -1,0 +1,46 @@
+@import '~reset-css';
+@import '~antd/dist/antd.css';
+
+@import 'layouts/chat';
+
+body {
+  background-color: #f4f7fd;
+}
+
+body,
+html,
+#root,
+.wrapper {
+  height: 100%;
+  color: #202020;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC',
+    'Hiragino Sans GB', 'Microsoft YaHei', 'Helvetica Neue', Helvetica, Arial,
+    sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segue UI Symbol';
+  font-size: 14px;
+}
+
+* {
+  outline: none;
+}
+
+// custom wrapper
+/* width: 800px;
+margin-left: auto;
+margin-right: auto; */
+
+/* ant customize */
+.ant-btn-circle {
+  border: 0;
+  box-shadow: 0;
+  color: #202020 !important;
+  opacity: 0.5;
+  transition: opacity 0.15s ease-in-out;
+
+  &:hover {
+    opacity: 1;
+  }
+
+  &:after {
+    display: none;
+  }
+}

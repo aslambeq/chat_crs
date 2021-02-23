@@ -1,0 +1,26 @@
+dialog:
+- _id
+- author
+- companion
+- created_at, updated_at
+
+message:
+- _id
+- author
+- companion
+- text
+- dialog
+- unread
+- created_at, updated_at
+
+user:
+- _id
+- e-mail
+- fullname
+- avatar
+- password (md5)
+- password2
+- confirmed
+- confirm_hash
+- last_seen
+- created_at, updated_at
