@@ -27,7 +27,6 @@ class UserController {
       password: req.body.password
     }
 
-    res.send()
     const user = new UserModel(postData)
     user
       .save()

@@ -1,13 +1,11 @@
 dialog:
 - _id
 - author
-- companion
+- partner
 - created_at, updated_at
 
 message:
 - _id
-- author
-- companion
 - text
 - dialog
 - unread

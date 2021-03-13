@@ -1,7 +1,7 @@
 import mongoose, { Schema, Document } from 'mongoose'
 import isEmail from 'validator/lib/isEmail'
 
-interface IUser extends Document {
+export interface IUser extends Document {
   email: string
   fullname: string
   password: string
@@ -11,6 +11,7 @@ interface IUser extends Document {
   last_seen: Date
 }
 
+// TODO make 'last seen' by default
 const UserSchema = new Schema(
   {
     email: {
