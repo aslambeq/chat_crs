@@ -1,10 +1,13 @@
 import express from 'express'
 import { UserModel } from '../models'
+import { IUser } from '../models/User'
+import { createJWT } from '../utils'
 
 class UserController {
   show(req: express.Request, res: express.Response) {
     const id: string = req.params.id
 
+    // FIXME any
     UserModel.findById(id, (err: any, user: any) => {
       if (err) {
         return res.status(404).json({
@@ -37,6 +40,36 @@ class UserController {
       .catch((err: any) => {
         return res.json(err)
       })
+  }
+
+  login(req: express.Request, res: express.Response) {
+    const postData = {
+      email: req.body.login,
+      password: req.body.password
+    }
+
+    // FIXME any
+    UserModel.findOne({ email: postData.email }, (err: any, user: IUser) => {
+      if (err) {
+        return res.status(404).json({
+          message: 'User not found'
+        })
+      }
+
+      if (user.password === postData.password) {
+        const token = createJWT(user)
+
+        res.json({
+          status: 'success',
+          token
+        })
+      } else {
+        res.json({
+          status: 'error',
+          message: 'Incorrect credentials'
+        })
+      }
+    })
   }
 
   delete(req: express.Request, res: express.Response) {
